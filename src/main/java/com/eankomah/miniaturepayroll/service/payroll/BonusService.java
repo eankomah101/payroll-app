@@ -1,5 +1,6 @@
 package com.eankomah.miniaturepayroll.service.payroll;
 
+import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.repository.BonusRepository;
 import lombok.RequiredArgsConstructor;
@@ -48,8 +49,23 @@ public class BonusService {
         bonus1.setTotalBonus(bonus.getTotalBonus() != null? bonus.getTotalBonus() : bonus1.getTotalBonus());
         bonus1.setStartDate(bonus.getStartDate() != null? bonus.getStartDate() : bonus1.getStartDate());
         bonus1.setEndDate(bonus.getEndDate() != null? bonus.getEndDate() : bonus1.getEndDate());
-        bonus1.setDescription(bonus.getDescription()
-                != null? bonus.getDescription() : bonus1.getDescription());
+        bonus1.setDescription(bonus.getDescription() != null? bonus.getDescription() : bonus1.getDescription());
       return bonusRepository.save(bonus1);
+    }
+
+    public void deleteAll(List<Long> id) {
+        List<Bonus> deleteAll = new ArrayList<>();
+        id.stream()
+        .map(bonus ->{
+                Bonus bonus1 = bonusRepository.findById(bonus.longValue()).orElseThrow();
+                return deleteAll.add(bonus1);
+                }
+
+        );
+        bonusRepository.deleteAll(deleteAll);
+    }
+
+    public void deleteById(Long id) {
+        bonusRepository.deleteById(id);
     }
 }

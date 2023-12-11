@@ -18,8 +18,13 @@ public class AllowanceController {
         return allowanceService.getAllAllowance();
     }
 
-    @PostMapping("/createAllowance")
+    @PostMapping("/create")
     public List<Allowance>createAllowance(@RequestBody List<Allowance> allowances){
         return allowanceService.create(allowances);
     }
+    @PostMapping("/update/{id}")
+    public Allowance updateAllowance(@PathVariable Long id ,@RequestBody Allowance allowance){
+        return allowanceService.update(id, allowance);
+    }
+
 }

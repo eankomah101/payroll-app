@@ -36,4 +36,16 @@ public class AllowanceService {
                 return allowanceRepository.saveAll(createAllowances);
 
     }
+
+    public Allowance update(Long id, Allowance allowance) {
+        Allowance allowance1 = allowanceRepository.findById(id).orElseThrow();
+        allowance1.setDescription(allowance.getDescription() != null ? allowance.getDescription() : allowance1.getDescription());
+        allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance() != null ? allowance.getMonthlyAllowance() : allowance1.getMonthlyAllowance());
+        allowance1.setTotalAllowance(allowance.getTotalAllowance() != null ? allowance.getTotalAllowance() : allowance1.getTotalAllowance());
+        allowance1.setStartDate(allowance.getStartDate() != null ? allowance.getStartDate() : allowance1.getStartDate());
+        allowance1.setEndDate(allowance.getEndDate() != null ? allowance.getEndDate() : allowance1.getEndDate());
+        return allowanceRepository.save(allowance1);
+    }
+
+
 }

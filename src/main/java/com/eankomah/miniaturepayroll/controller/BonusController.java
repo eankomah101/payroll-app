@@ -1,5 +1,6 @@
 package com.eankomah.miniaturepayroll.controller;
 
+import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.service.payroll.BonusService;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,18 @@ public class BonusController {
     public Bonus updateBonus(@PathVariable Long id, @RequestBody Bonus bonus){
         return bonusService.update(bonus,id);
     }
+
+    @DeleteMapping("/delete")
+    public String deleteAll(@RequestBody List<Long> id){
+        bonusService.deleteAll(id);
+        return "Allowances Deleted Successfully";
+            }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteById(@PathVariable Long id){
+        bonusService.deleteById(id);
+        return "Allowance Deleted Successfully";
+    }
+
 
 }
