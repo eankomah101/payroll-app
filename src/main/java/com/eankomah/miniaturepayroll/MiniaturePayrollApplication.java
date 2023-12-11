@@ -26,8 +26,6 @@ public class MiniaturePayrollApplication {
 		if (null == adminAccount) {
 			User user = new User();
 			user.setEmail("admin@gmail.com");
-			user.setFirstname("admin");
-			user.setLastname("admin");
 			user.setRole(Role.ADMIN);
 			user.setPassword(new BCryptPasswordEncoder().encode("admin"));
 			userRepository.save(user);

@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                         req.requestMatchers("/api/v1/auth/**","/error")
                                 .permitAll()
                                 .requestMatchers("/api/v1/admin/**").hasAnyAuthority(Role.ADMIN.name())
+                                .requestMatchers("/api/v1/accountant/**").hasAnyAuthority(Role.ACCOUNTANT.name())
                                 .requestMatchers("/api/v1/user/**").hasAnyAuthority(Role.USER.name())
                                 .anyRequest()
                                 .authenticated()

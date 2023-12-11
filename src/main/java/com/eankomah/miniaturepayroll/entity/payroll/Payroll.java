@@ -1,2 +1,23 @@
-package com.eankomah.miniaturepayroll.entity.payroll;public class Payroll {
+package com.eankomah.miniaturepayroll.entity.payroll;
+
+import com.eankomah.miniaturepayroll.entity.Employee;
+import com.eankomah.miniaturepayroll.service.employee.EmployeeService;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
+
+@Entity
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+public class Payroll {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Integer;
+
 }
