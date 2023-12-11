@@ -1,13 +1,14 @@
 package com.eankomah.miniaturepayroll.entity.payroll;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.time.YearMonth;
 
 @Data
 @Entity
@@ -17,11 +18,28 @@ import lombok.NoArgsConstructor;
 public class Allowance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private double fuelAllowance;
-    private double carMaintenanceAllowance;
-    private double bundleAllowance;
+   private Long id;
+    @Column(nullable = false)
+    private String employeeId;
 
+    @Column(nullable = false)
+    private String description;
+
+    @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
+    private YearMonth startDate;
+
+    @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
+    private YearMonth endDate;
+
+    @Column(nullable = false,columnDefinition="Decimal(10,2) default '0.00'")
+    private Double totalAllowance = 0.0;
+    @Column(nullable = false,columnDefinition="Decimal(10,2) default '0.00'")
+    private Double monthlyAllowance = 0.0;
+
+    @Column(nullable = false)
+    private String date = LocalDateTime.now().toString();
 
 
 

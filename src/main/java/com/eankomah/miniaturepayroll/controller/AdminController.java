@@ -1,5 +1,5 @@
 package com.eankomah.miniaturepayroll.controller;
-import com.eankomah.miniaturepayroll.entity.Employee;
+import com.eankomah.miniaturepayroll.entity.employee.Employee;
 import com.eankomah.miniaturepayroll.service.employee.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

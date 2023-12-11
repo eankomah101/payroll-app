@@ -1,4 +1,4 @@
-package com.eankomah.miniaturepayroll.entity;
+package com.eankomah.miniaturepayroll.entity.employee;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long employeeId;
     private String firstName;
     private String lastName;
     private String otherNames;

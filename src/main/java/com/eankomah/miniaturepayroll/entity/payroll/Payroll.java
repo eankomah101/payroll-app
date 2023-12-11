@@ -1,7 +1,5 @@
 package com.eankomah.miniaturepayroll.entity.payroll;
 
-import com.eankomah.miniaturepayroll.entity.Employee;
-import com.eankomah.miniaturepayroll.service.employee.EmployeeService;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
