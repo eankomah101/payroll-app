@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                                 .requestMatchers("/api/v1/employees/**","/error").hasAnyAuthority(Role.ADMIN.name())
                                 .requestMatchers("/api/v1/bonus/**","/error").hasAnyAuthority(Role.ACCOUNTANT.name())
                                 .requestMatchers("/api/v1/allowance/**","/error").hasAnyAuthority(Role.ACCOUNTANT.name())
-                                .requestMatchers("/api/v1/user/**","/error").hasAnyAuthority(Role.USER.name())
+
                                 .anyRequest()
                                 .authenticated()
                 )

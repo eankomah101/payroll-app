@@ -33,9 +33,10 @@ public class Allowance {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
     private YearMonth endDate;
 
-    @Column(nullable = false,columnDefinition="Decimal(10,2) default '0.00'")
+    @Column(nullable = false)
     private Double totalAllowance = 0.0;
-    @Column(nullable = false,columnDefinition="Decimal(10,2) default '0.00'")
+
+    @Column(nullable = false)
     private Double monthlyAllowance = 0.0;
 
     @Column(nullable = false)
