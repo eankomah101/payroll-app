@@ -63,15 +63,3 @@ A comprehensive payroll system designed to streamline and digitize payroll proce
 
 - **Security:**
   - Secured all endpoints, excluding login and Swagger, using Spring Security.
-
-## Getting Started
-
-To get started with the Miniature Payroll System, follow the instructions in the [Installation Guide](docs/installation-guide.md).
-
-## Contributing
-
-Contributions are welcome! Please check the [Contribution Guidelines](CONTRIBUTING.md) for more details.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
