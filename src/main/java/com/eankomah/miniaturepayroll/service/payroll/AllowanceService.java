@@ -6,8 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,22 +17,41 @@ public class AllowanceService {
 
     }
 
+//    public List<Allowance> create(List<Allowance> allowances) {
+//        AtomicLong idGenerator = new AtomicLong(1);
+//        List<Allowance> createAllowances =  new ArrayList<>();
+//        allowances.stream()
+//                .map(allowance -> {
+//                    Allowance allowance1 = new Allowance();
+//                    allowance1.setId(idGenerator.incrementAndGet());
+//                    allowance1.setEmployeeId(allowance.getEmployeeId());
+//                    allowance1.setDescription(allowance.getDescription());
+//                    allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance());
+//                    allowance1.setTotalAllowance(allowance.getTotalAllowance());
+//                    return createAllowances.add(allowance1);
+//                })
+//                .collect(Collectors.toList());
+//                return allowanceRepository.saveAll(createAllowances);
+//
+//    }
+
+
     public List<Allowance> create(List<Allowance> allowances) {
-        AtomicLong idGenerator = new AtomicLong(1);
         List<Allowance> createAllowances =  new ArrayList<>();
-        allowances.stream()
-                .map(allowance -> {
-                    Allowance allowance1 = new Allowance();
-                    allowance1.setId(idGenerator.incrementAndGet());
-                    allowance1.setEmployeeId(allowance.getEmployeeId());
+        allowances.forEach(allowance ->{
+            Allowance allowance1 = new Allowance();
                     allowance1.setDescription(allowance.getDescription());
                     allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance());
                     allowance1.setTotalAllowance(allowance.getTotalAllowance());
-                    return createAllowances.add(allowance1);
-                })
-                .collect(Collectors.toList());
-                return allowanceRepository.saveAll(createAllowances);
+                    allowance1.setStartDate(allowance.getStartDate());
+                    allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance());
+                    allowance1.setTotalAllowance(allowance.getTotalAllowance());
+                    allowance1.setEndDate(allowance.getEndDate());
 
+                    createAllowances.add(allowance1);
+
+        });
+        return allowanceRepository.saveAll(createAllowances);
     }
 
     public Allowance update(Long id, Allowance allowance) {
@@ -46,6 +63,7 @@ public class AllowanceService {
         allowance1.setEndDate(allowance.getEndDate() != null ? allowance.getEndDate() : allowance1.getEndDate());
         return allowanceRepository.save(allowance1);
     }
+
 
 
 }

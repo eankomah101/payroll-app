@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
@@ -17,3 +17,8 @@ spring:
 evs:
   jwt-security: ${jwt-security}
 
+evs2:
+  admin-password: ${admin-password}
+
+evs3:
+  account-password: ${account-password}

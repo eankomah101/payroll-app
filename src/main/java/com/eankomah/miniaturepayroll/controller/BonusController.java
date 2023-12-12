@@ -1,6 +1,5 @@
 package com.eankomah.miniaturepayroll.controller;
 
-import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.service.payroll.BonusService;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/bonus")
+@RequestMapping("/api/v1/bonus")
 @RequiredArgsConstructor
 public class BonusController {
     private final BonusService bonusService;
@@ -30,15 +29,10 @@ public class BonusController {
 
     @DeleteMapping("/delete")
     public String deleteAll(@RequestBody List<Long> id){
-        bonusService.deleteAll(id);
+        bonusService.deleteAllById(id);
         return "Allowances Deleted Successfully";
             }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteById(@PathVariable Long id){
-        bonusService.deleteById(id);
-        return "Allowance Deleted Successfully";
-    }
 
 
 }

@@ -1,44 +1,43 @@
 package com.eankomah.miniaturepayroll.service.payroll;
 
-import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
+import com.eankomah.miniaturepayroll.entity.employee.Employee;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.repository.BonusRepository;
+import com.eankomah.miniaturepayroll.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class BonusService {
 
     private final BonusRepository bonusRepository;
+    private final EmployeeRepository employeeRepository;
 
     public List<Bonus> getAllBonuses() {
         return bonusRepository.findAll();
     }
 
     public List<Bonus> create(List<Bonus> bonusList) {
-        AtomicLong idGenerator = new AtomicLong(1);
-                List<Bonus> Allbonuses = new ArrayList<>();
-                bonusList.stream()
-                .map(bonus -> {
+                List<Bonus> allbonuses = new ArrayList<>();
+                bonusList.forEach(bonus -> {
+                    Employee employee = employeeRepository.findById(Long.valueOf(bonus.getEmployeeId())).orElseThrow();
                     Bonus bonus1 = new Bonus();
-                    bonus1.setId(idGenerator.incrementAndGet());
-                    bonus1.setEmployeeId(bonus.getEmployeeId());
                     bonus1.setDescription(bonus.getDescription());
                     bonus1.setStartDate(bonus.getStartDate());
                     bonus1.setEndDate(bonus.getEndDate());
                     bonus1.setMonthlyBonus(bonus.getMonthlyBonus());
                     bonus1.setTotalBonus(bonus.getTotalBonus());
 
-                  return Allbonuses.add(bonus1);
+                   allbonuses.add(bonus1);
+                    employee.setBonus(bonus);
+                    employeeRepository.save(employee);
 
-                })
-                .collect(Collectors.toList());
-                return bonusRepository.saveAll(Allbonuses);
+                });
+                return bonusRepository.saveAll(allbonuses);
     }
 
 
@@ -53,19 +52,18 @@ public class BonusService {
       return bonusRepository.save(bonus1);
     }
 
-    public void deleteAll(List<Long> id) {
+    public void deleteAllById(List<Long> id) {
         List<Bonus> deleteAll = new ArrayList<>();
-        id.stream()
-        .map(bonus ->{
-                Bonus bonus1 = bonusRepository.findById(bonus.longValue()).orElseThrow();
-                return deleteAll.add(bonus1);
-                }
 
-        );
+        id.stream()
+                .map(bonus -> {
+                    Bonus bonus1 = bonusRepository.findById(bonus).orElseThrow();
+                    return deleteAll.add(bonus1);
+                })
+                .toList();
+
         bonusRepository.deleteAll(deleteAll);
     }
 
-    public void deleteById(Long id) {
-        bonusRepository.deleteById(id);
-    }
+
 }
