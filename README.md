@@ -1,45 +1,77 @@
-MINIATURE PAYROLL
+# Miniature Payroll System
 
-Built a System that will help a company digitalise its payroll processes 
-from end to end. 
-The roles and the admin were seeded when the application starts.
-The System is able to 
-i. Allow users to log in with email and password
-ii. add employees (done by admin)
-iii. add bonuses and allowances (done by accountant)
-iv. generate and retrieve payroll information (accountant or senior 
-accountant). Only the senior accountant is able to approve the 
-payroll information.
-v. Sent an email notification to the senior accountant to approve the payroll 
-when it is generated.
+A comprehensive payroll system designed to streamline and digitize payroll processes for businesses. This system covers user authentication, employee management, bonus and allowance tracking, payroll generation, and approval workflows. Developed using Java Spring Boot and integrated with a PostgreSQL database.
 
-The administrator of the system will be able to: 
-1. create an employee with the fields listed below 
-a. first name 
-b. last name 
-c. other names (optional) 
-d. gender 
-e. email 
-f. hire date 
-g. role
-other user information included monthly salary, phone number and bank 
-account number. User was given a default password to start with. 
+## Key Features
 
-2. update the details of an existing employee.
-3. deactivate an employee.
-4. generate payroll for the month.
-At the end of every month, the accountant clicks the generate payroll button. The 
-payroll API  saves user information such as name, email, basic salary, employee 
-SSF (5% of basic salary), and the sum of all bonuses (all for the current month) for each
-employee. 
+1. **User Authentication:**
+   - Users can log in securely using their email and password.
 
-TECH STACK 
-• Java Spring boot 
-• Postgres (database)
+2. **Employee Management:**
+   - Admins can add employees with the following details:
+     - First Name
+     - Last Name
+     - Other Names (optional)
+     - Gender
+     - Email
+     - Hire Date
+     - Role
+     - Monthly Salary
+     - Phone Number
+     - Bank Account Number
+   - Default passwords are assigned to users initially.
 
-ADDITIONALLY
-I Documented the payroll API with swagger 
-Used the Sonarlint extension 
-Used version control (Git and GitHub) 
-Implemented all seeders with a command line runner
-Secured all endpoints except the login and swagger endpoint and also Spring Security
+3. **Role-Based Permissions:**
+   - Admins can add employees.
+   - Accountants can add bonuses and allowances.
+   - Accountants or senior accountants can generate and retrieve payroll information.
+   - Only senior accountants can approve payroll information.
+
+4. **Email Notification:**
+   - A notification is sent to the senior accountant for payroll approval.
+
+5. **Administrator Privileges:**
+   - Create, update, and deactivate employee details.
+   - Generate payroll for the month.
+
+6. **Payroll Generation:**
+   - Monthly payroll generation includes:
+     - Name
+     - Email
+     - Basic Salary
+     - Employee SSF (5% of basic salary)
+     - Sum of all bonuses for the current month
+
+## Tech Stack
+
+- **Java Spring Boot**
+- **PostgreSQL** (database)
+
+## Additional Implementations
+
+- **API Documentation:**
+  - The payroll API is documented using Swagger.
+
+- **Code Quality:**
+  - Implemented Sonarlint extension for code quality.
+
+- **Version Control:**
+  - Utilized Git and GitHub for version control.
+
+- **Seeder Implementation:**
+  - All roles and admin accounts are seeded using a command line runner.
+
+- **Security:**
+  - Secured all endpoints, excluding login and Swagger, using Spring Security.
+
+## Getting Started
+
+To get started with the Miniature Payroll System, follow the instructions in the [Installation Guide](docs/installation-guide.md).
+
+## Contributing
+
+Contributions are welcome! Please check the [Contribution Guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
