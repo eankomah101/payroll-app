@@ -55,16 +55,13 @@ public class BonusService {
     public void deleteAllById(List<Long> id) {
         List<Bonus> deleteAll = new ArrayList<>();
 
-        id.stream()
-                .map(bonus -> {
-                    Bonus bonus1 = bonusRepository.findById(bonus).orElseThrow();
-                    return deleteAll.add(bonus1);
-                })
-                .toList();
+        id.forEach(bonus -> {
+            Bonus bonus1 = bonusRepository.findById(bonus).orElseThrow();
+            deleteAll.add(bonus1);
+        });
 
         bonusRepository.deleteAll(deleteAll);
     }
-
 
 
 }

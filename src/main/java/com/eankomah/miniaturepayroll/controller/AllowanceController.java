@@ -26,5 +26,11 @@ public class AllowanceController {
     public Allowance updateAllowance(@PathVariable Long id ,@RequestBody Allowance allowance){
         return allowanceService.update(id, allowance);
     }
+    @DeleteMapping("/delete")
+    public String deleteAllByIds(@RequestBody List<Long> id){
+        allowanceService.deleteAllById(id);
+        return "Allowance deleted Successfully";
+
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.eankomah.miniaturepayroll.service.payroll;
 
 import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
+import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.repository.AllowanceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -65,5 +66,14 @@ public class AllowanceService {
     }
 
 
+    public void deleteAllById(List<Long> id) {
+        List<Allowance> deleteAll = new ArrayList<>();
 
+        id.forEach(allowance -> {
+            Allowance allowance1 = allowanceRepository.findById(allowance).orElseThrow();
+            deleteAll.add(allowance1);
+        });
+
+        allowanceRepository.deleteAll(deleteAll);
+    }
 }
