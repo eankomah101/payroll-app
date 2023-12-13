@@ -24,11 +24,8 @@ public class AllowanceService {
                     allowance1.setDescription(allowance.getDescription());
                     allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance());
                     allowance1.setTotalAllowance(allowance.getTotalAllowance());
-                    allowance1.setStartDate(allowance.getStartDate());
                     allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance());
                     allowance1.setTotalAllowance(allowance.getTotalAllowance());
-                    allowance1.setEndDate(allowance.getEndDate());
-
                     createAllowances.add(allowance1);
 
         });
@@ -40,8 +37,6 @@ public class AllowanceService {
         allowance1.setDescription(allowance.getDescription() != null ? allowance.getDescription() : allowance1.getDescription());
         allowance1.setMonthlyAllowance(allowance.getMonthlyAllowance() != null ? allowance.getMonthlyAllowance() : allowance1.getMonthlyAllowance());
         allowance1.setTotalAllowance(allowance.getTotalAllowance() != null ? allowance.getTotalAllowance() : allowance1.getTotalAllowance());
-        allowance1.setStartDate(allowance.getStartDate() != null ? allowance.getStartDate() : allowance1.getStartDate());
-        allowance1.setEndDate(allowance.getEndDate() != null ? allowance.getEndDate() : allowance1.getEndDate());
         return allowanceRepository.save(allowance1);
     }
 

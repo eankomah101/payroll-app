@@ -1,11 +1,6 @@
 package com.eankomah.miniaturepayroll.entity.payroll;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDateTime;
-import java.time.YearMonth;
 
 @Data
 @Entity
