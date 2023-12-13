@@ -48,7 +48,7 @@ public class BonusService {
       return bonusRepository.save(bonus1);
     }
 
-    public void deleteAllById(List<Long> id) {
+    public void deleteById(List<Long> id) {
         List<Bonus> deleteAll = new ArrayList<>();
 
         id.forEach(bonus -> {
