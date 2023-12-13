@@ -1,14 +1,9 @@
 package com.eankomah.miniaturepayroll.entity.payroll;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
-import java.time.YearMonth;
 
 @Data
 @Entity
@@ -26,21 +21,10 @@ public class Allowance {
     private String description;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth startDate;
+    private Double totalAllowance;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth endDate;
-
-    @Column(nullable = false)
-    private Double totalAllowance = 0.0;
-
-    @Column(nullable = false)
-    private Double monthlyAllowance = 0.0;
-
-    @Column(nullable = false)
-    private String date = LocalDateTime.now().toString();
+    private Double monthlyAllowance;
 
 
 

@@ -26,19 +26,9 @@ public class Bonus {
     private String description;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth startDate;
+    private Double totalBonus;
 
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth endDate;
+    private Double monthlyBonus;
 
-    @Column(nullable = false)
-    private Double totalBonus = 0.0;
-
-    @Column(nullable = false)
-    private Double monthlyBonus = 0.0;
-
-    @Column(nullable = false)
-    private String date = LocalDateTime.now().toString();
 }
