@@ -29,7 +29,7 @@ public class BonusController {
 
     @DeleteMapping("/delete")
     public String deleteAll(@RequestBody List<Long> id){
-        bonusService.deleteAllById(id);
+        bonusService.deleteById(id);
         return "Bonus Deleted Successfully";
             }
 
