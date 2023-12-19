@@ -1,14 +1,11 @@
 package com.eankomah.miniaturepayroll.service.payroll;
 
 import com.eankomah.miniaturepayroll.dto.CreatingBonus;
-import com.eankomah.miniaturepayroll.entity.employee.Employee;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
-import com.eankomah.miniaturepayroll.mappers.Mapper;
-import com.eankomah.miniaturepayroll.mappers.impl.BonusMapperImp;
+import com.eankomah.miniaturepayroll.mappers.BonusMapper;
 import com.eankomah.miniaturepayroll.repository.BonusRepository;
 import com.eankomah.miniaturepayroll.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class BonusService {
     private final BonusRepository bonusRepository;
     private final EmployeeRepository employeeRepository;
 
-    private final Mapper<Bonus, CreatingBonus> bonusMapper;
+    private final BonusMapper<Bonus, CreatingBonus> bonusMapper;
 
 
 

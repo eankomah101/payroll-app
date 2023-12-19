@@ -1,16 +1,15 @@
 package com.eankomah.miniaturepayroll.mappers.impl;
 
-import com.eankomah.miniaturepayroll.config.MapperConfig;
 import com.eankomah.miniaturepayroll.dto.CreatingBonus;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
-import com.eankomah.miniaturepayroll.mappers.Mapper;
+import com.eankomah.miniaturepayroll.mappers.BonusMapper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class BonusMapperImp implements Mapper <Bonus, CreatingBonus> {
+public class BonusMapperImp implements BonusMapper<Bonus, CreatingBonus> {
 
     private final ModelMapper modelMapper;
 

@@ -1,7 +1,7 @@
 package com.eankomah.miniaturepayroll.repository;
 
-import com.eankomah.miniaturepayroll.entity.Role;
-import com.eankomah.miniaturepayroll.entity.User;
+import com.eankomah.miniaturepayroll.entity.user.Role;
+import com.eankomah.miniaturepayroll.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
