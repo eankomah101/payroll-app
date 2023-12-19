@@ -44,7 +44,8 @@ public class BonusService {
 //    }
 
     public List<Bonus> create(List<CreatingBonus> creatingBonus){
-        List<Bonus> bonusList = creatingBonus.stream().map(bonusMapper::mapToEntity).toList();
+        List<Bonus> bonusList = creatingBonus.stream().map(bonusMapper::mapToEntity)
+                .toList();
         System.out.println(bonusList + "The created bonus");
         return bonusRepository.saveAll(bonusList);
 

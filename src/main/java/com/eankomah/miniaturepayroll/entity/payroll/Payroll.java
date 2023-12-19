@@ -17,9 +17,6 @@ public class Payroll {
     private Double basicSalary;
     private Double employeeSSF;
 
-    @OneToOne
-    private Employee employee;
-
     private Double sumOfAllBonuses;
 
 

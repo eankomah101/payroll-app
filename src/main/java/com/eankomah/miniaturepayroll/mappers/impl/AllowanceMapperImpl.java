@@ -5,8 +5,10 @@ import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
 import com.eankomah.miniaturepayroll.mappers.AllowanceMapper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
+@Component
 public class AllowanceMapperImpl implements AllowanceMapper<Allowance, CreatingAllowance> {
     private final ModelMapper modelMapper;
 
