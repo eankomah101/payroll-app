@@ -1,4 +1,4 @@
-package com.eankomah.miniaturepayroll;
+package com.eankomah.miniaturepayroll.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
@@ -17,15 +17,7 @@ public class CreatingBonus {
 
     private String description;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth endDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth startDate;
-
-    @Column(nullable = false)
     private Double monthlyBonus;
 
-    @Column(nullable = false)
     private Double totalBonus;
 }

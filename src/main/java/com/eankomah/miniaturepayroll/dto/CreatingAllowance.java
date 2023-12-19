@@ -1,4 +1,4 @@
-package com.eankomah.miniaturepayroll;
+package com.eankomah.miniaturepayroll.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
