@@ -1,7 +1,7 @@
 package com.eankomah.miniaturepayroll;
 
-import com.eankomah.miniaturepayroll.entity.Role;
-import com.eankomah.miniaturepayroll.entity.User;
+import com.eankomah.miniaturepayroll.entity.user.Role;
+import com.eankomah.miniaturepayroll.entity.user.User;
 import com.eankomah.miniaturepayroll.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,5 +1,6 @@
 package com.eankomah.miniaturepayroll.controller;
 
+import com.eankomah.miniaturepayroll.dto.CreatingBonus;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.eankomah.miniaturepayroll.service.payroll.BonusService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class BonusController {
     }
 
     @PostMapping("/createBonus")
-    public List<Bonus> createBonus(@RequestBody List<Bonus> bonusList){
+    public List<Bonus> createBonus(@RequestBody List<CreatingBonus> bonusList){
         return bonusService.create(bonusList);
     }
 

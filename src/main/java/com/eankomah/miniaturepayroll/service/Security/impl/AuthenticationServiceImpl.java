@@ -2,7 +2,7 @@ package com.eankomah.miniaturepayroll.service.Security.impl;
 import com.eankomah.miniaturepayroll.dto.JwtAuthenticationResponse;
 import com.eankomah.miniaturepayroll.dto.RefreshTokenRequest;
 import com.eankomah.miniaturepayroll.dto.LogInRequest;
-import com.eankomah.miniaturepayroll.entity.User;
+import com.eankomah.miniaturepayroll.entity.user.User;
 import com.eankomah.miniaturepayroll.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;

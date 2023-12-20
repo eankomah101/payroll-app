@@ -1,5 +1,5 @@
 package com.eankomah.miniaturepayroll.config;
-import com.eankomah.miniaturepayroll.entity.Role;
+import com.eankomah.miniaturepayroll.entity.user.Role;
 import com.eankomah.miniaturepayroll.service.Security.impl.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

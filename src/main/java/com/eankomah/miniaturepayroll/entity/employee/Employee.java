@@ -1,5 +1,6 @@
 package com.eankomah.miniaturepayroll.entity.employee;
 
+import com.eankomah.miniaturepayroll.entity.payroll.Allowance;
 import com.eankomah.miniaturepayroll.entity.payroll.Bonus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -9,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.YearMonth;
+import java.util.List;
+
 @Data
 @Entity
 @Builder
@@ -28,12 +31,15 @@ public class Employee {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
     private YearMonth hireDate;
     @Column(nullable = false)
-    private double monthlySalary;
+    private double basicSalary;
     private String phoneNumber;
     private String accountNumber;
 
-    @OneToOne
-    private Bonus bonus;
+    @OneToMany(mappedBy = "employeeId")
+    private List<Bonus> bonus;
+
+    @OneToMany(mappedBy = "employeeId")
+    private List<Allowance> allowance;
 
 
 }
