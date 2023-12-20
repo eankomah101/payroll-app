@@ -1,4 +1,5 @@
 package com.eankomah.miniaturepayroll.entity.payroll;
+import com.eankomah.miniaturepayroll.entity.employee.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +14,11 @@ public class Payroll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long payrollId;
-    private Double basicSalary;
     private Double employeeSSF;
-
     private Double sumOfAllBonuses;
+
+    @OneToOne
+    private Employee employee;
 
 
 

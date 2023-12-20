@@ -16,17 +16,12 @@ public class CreatingAllowance {
     private Long employeeId;
     private String description;
 
-    @Column(nullable = false)
-    private Double totalAllowance = 0.0;
 
-    @Column(nullable = false)
-    private Double monthlyAllowance = 0.0;
+    private Double totalAllowance;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth startDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM")
-    private YearMonth endDate;
+    private Double monthlyAllowance ;
+
 
 
 }

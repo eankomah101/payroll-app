@@ -23,7 +23,7 @@ public class AllowanceController {
     public List<Allowance>createAllowance(@RequestBody List<CreatingAllowance> allowanceList){
         return allowanceService.create(allowanceList);
     }
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public Allowance updateAllowance(@PathVariable Long id ,@RequestBody Allowance allowance){
         return allowanceService.update(id, allowance);
     }

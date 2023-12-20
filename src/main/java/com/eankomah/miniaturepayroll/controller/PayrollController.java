@@ -3,9 +3,8 @@ package com.eankomah.miniaturepayroll.controller;
 import com.eankomah.miniaturepayroll.entity.payroll.Payroll;
 import com.eankomah.miniaturepayroll.service.payroll.PayrollService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +17,12 @@ public class PayrollController {
     @GetMapping("/")
     public List<Payroll> getAllPayroll() {
         return payrollService.getAllPayroll();
+    }
+
+    @PostMapping("/generate")
+    public ResponseEntity<Payroll> generatePayroll(@RequestBody Payroll payroll){
+
+        return ResponseEntity.ok(payrollService.generatePayroll(payroll));
+
     }
 }
