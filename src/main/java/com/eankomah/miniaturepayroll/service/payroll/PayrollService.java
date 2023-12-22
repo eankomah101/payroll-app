@@ -36,7 +36,7 @@ public class PayrollService {
             Payroll payroll1 = new Payroll();
             payroll1.setEmployee(employee);
             payroll1.setEmployeeSSF( 5 % employee.getBasicSalary());
-            payroll1.setSumOfAllBonuses(1.2);
+            payroll1.setSumOfAllBonuses(200.0);
             sumOfBonuses(employee);
 
             payrollArrayList.add(payroll1);
@@ -45,6 +45,7 @@ public class PayrollService {
     }
 
     public void sumOfBonuses(Employee employee){
+
         System.out.println("bonuses = " + employee.getBonus().stream().toList());
     }
 }
