@@ -35,10 +35,10 @@ public class Employee {
     private String phoneNumber;
     private String accountNumber;
 
-    @OneToMany(mappedBy = "employeeId")
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Bonus> bonus;
 
-    @OneToMany(mappedBy = "employeeId")
+    @OneToMany
     private List<Allowance> allowance;
 
 

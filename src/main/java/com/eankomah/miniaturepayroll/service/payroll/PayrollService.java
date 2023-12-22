@@ -7,6 +7,7 @@ import com.eankomah.miniaturepayroll.repository.PayrollRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,23 +22,30 @@ public class PayrollService {
     }
 
 
-    public Payroll generatePayroll(Payroll payroll) {
-        //Employee employee = new Employee();
-//        Bonus bonus = new Bonus();
-//        Payroll payroll1 = new Payroll();
-//        payroll1.setEmployee();
-//        payroll1.setBasicSalary(employee.getMonthlySalary());
-//        payroll1.setSumOfAllBonuses(bonus.getTotalBonus());
-//        payroll1.setEmployeeSSF( 5 % payroll.getBasicSalary());
-//        return payrollRepository.save(payroll);
+    public List<Payroll> generatePayroll() {
+        ArrayList<Payroll> payrollArrayList = new ArrayList<>();
+
         List<Employee> employees = employeeRepository.findAll();
+
+        List<Payroll> payrolls = payrollRepository.findAll();
+
+        if (!payrolls.isEmpty())
+            payrollRepository.deleteAll();
 
         for(Employee employee : employees){
             Payroll payroll1 = new Payroll();
             payroll1.setEmployee(employee);
             payroll1.setEmployeeSSF( 5 % employee.getBasicSalary());
-            payroll1.setSumOfAllBonuses(payroll1.getSumOfAllBonuses());
+            payroll1.setSumOfAllBonuses(1.2);
+            sumOfBonuses(employee);
+
+            payrollArrayList.add(payroll1);
         }
-            return payrollRepository.save(payroll);
+            return payrollRepository.saveAll(payrollArrayList);
+    }
+
+    public void sumOfBonuses(Employee employee){
+        System.out.println("bonuses = " + employee.getBonus().stream().toList());
     }
 }
+

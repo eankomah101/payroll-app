@@ -14,8 +14,6 @@ public class Allowance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
-    @Column(nullable = false)
-    private String employeeId;
 
     @Column(nullable = false)
     private String description;

@@ -20,9 +20,8 @@ public class PayrollController {
     }
 
     @PostMapping("/generate")
-    public ResponseEntity<Payroll> generatePayroll(@RequestBody Payroll payroll){
-
-        return ResponseEntity.ok(payrollService.generatePayroll(payroll));
+    public List<Payroll> generatePayroll(){
+        return payrollService.generatePayroll();
 
     }
 }

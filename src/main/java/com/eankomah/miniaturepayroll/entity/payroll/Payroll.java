@@ -14,7 +14,7 @@ public class Payroll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long payrollId;
-    private Double employeeSSF;
+    private double employeeSSF;
     private Double sumOfAllBonuses;
 
     @OneToOne
